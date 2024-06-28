@@ -23,14 +23,14 @@ public class ServerListener implements Listener {
 	@EventHandler
 	public void onPing(ProxyPingEvent e) {
 	    ServerPing ping = e.getResponse();
-	    ServerInfo practicena = this.main.getServer().getServerInfo("practicena");
-	    if (practicena.getMotd().contains("whitelisted")) {
-	    	e.getResponse().setDescriptionComponent(new TextComponent("              " + ChatColor.GRAY + " • " + ChatColor.DARK_GRAY + ChatColor.BOLD + "Akyto" + ChatColor.GRAY + "│" + ChatColor.WHITE + ChatColor.BOLD + " Network" + ChatColor.GRAY + " • " + ChatColor.RED + ChatColor.BOLD + "NA\n" + ChatColor.RED + " » " + ChatColor.GRAY + "Currently under development, coming soon" + ChatColor.WHITE + "..."));
+	    ServerInfo practice = this.main.getServer().getServerInfo("practice");
+	    if (practice.getMotd().contains("whitelisted")) {
+	    	e.getResponse().setDescriptionComponent(new TextComponent("                   " + ChatColor.DARK_GRAY + ChatColor.BOLD + "Akyto" + ChatColor.GRAY + " X " + ChatColor.DARK_AQUA + ChatColor.BOLD + "Soup" + ChatColor.AQUA + "World " + ChatColor.GRAY + "\n" + ChatColor.RED + " » " + ChatColor.GRAY + "Currently under development, coming soon" + ChatColor.WHITE + "..."));
 		    ServerPing.Protocol vers = ping.getVersion();
 		    vers.setName(ChatColor.GOLD.toString() + ChatColor.ITALIC + "Whitelisted");
 		    vers.setProtocol(9999);	
 	    }
-	    if (!practicena.getMotd().contains("whitelisted")) e.getResponse().setDescriptionComponent(new TextComponent("            " + ChatColor.GRAY + " • " + ChatColor.DARK_GRAY + ChatColor.BOLD + "Akyto" + ChatColor.GRAY + "│" + ChatColor.WHITE + ChatColor.BOLD + " Network" + ChatColor.GRAY + " • " + ChatColor.RED + ChatColor.BOLD + "NA\n" + ChatColor.RED + " » " + ChatColor.GRAY + "The return of the real fight is " + ChatColor.WHITE + "here!"));
+	    if (!practice.getMotd().contains("whitelisted")) e.getResponse().setDescriptionComponent(new TextComponent("                 " + ChatColor.DARK_GRAY + ChatColor.BOLD + "Akyto" + ChatColor.GRAY + " X " + ChatColor.DARK_AQUA + ChatColor.BOLD + "Soup" + ChatColor.AQUA + "World " + ChatColor.GRAY + "\n" + ChatColor.RED + " » " + ChatColor.GRAY + "Join us " + ChatColor.WHITE + "now!"));
 	    e.setResponse(ping);
 	}
 	
