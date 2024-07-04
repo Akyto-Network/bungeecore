@@ -1,7 +1,0 @@
-name: BungeeCore
-author: [kezukdev]
-version: 1.0
-main: kezuk.akyto.BungeeCore
-command: 
-  hub:
-   aliases: [lobby, hubs, lobbys, h, l]
