@@ -6,6 +6,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 
 import kezuk.akyto.BungeeCore;
@@ -31,13 +32,14 @@ public class ServerListener implements Listener {
 	public void onPing(ProxyPingEvent e) {
 	    ServerPing ping = e.getResponse();
 	    ServerInfo practice = this.main.getServer().getServerInfo("practice");
+		final String barCode = new String("|".getBytes(), StandardCharsets.UTF_8);
 	    if (practice.getMotd().contains("whitelisted")) {
-	    	e.getResponse().setDescriptionComponent(new TextComponent(ChatColor.translateAlternateColorCodes('&', "          &7• &8&lAkyto &7│ &f&lNetwork &7•\n&c» &7We are currently cooking right now...")));
+	    	e.getResponse().setDescriptionComponent(new TextComponent(ChatColor.translateAlternateColorCodes('&', "          &7• &cAkyto &7৷ &4&lNetwork &7•\n&c» &fWe are currently cooking right now...")));
 		    ServerPing.Protocol vers = ping.getVersion();
-		    vers.setName(ChatColor.GOLD.toString() + ChatColor.ITALIC + "Whitelisted");
+		    vers.setName(ChatColor.RED.toString() + ChatColor.ITALIC + "Whitelisted");
 		    vers.setProtocol(9999);	
 	    }
-	    if (!practice.getMotd().contains("whitelisted")) e.getResponse().setDescriptionComponent(new TextComponent(ChatColor.translateAlternateColorCodes('&', "          &7• &8&lAkyto &7│ &f&lNetwork &7•\n&c» &fJoin our &f&lV2.0 &fright now!")));
+	    if (!practice.getMotd().contains("whitelisted")) e.getResponse().setDescriptionComponent(new TextComponent(ChatColor.translateAlternateColorCodes('&', "          &7• &cAkyto &7৷ &4&lNetwork &7•\n&c» &fJoin our &f&lV2.0 &fright now!")));
 	    e.setResponse(ping);
 	}
 
